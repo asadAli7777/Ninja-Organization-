@@ -1,0 +1,397 @@
+*,::before,::after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+:root{
+	--basic1: rgba(96, 163, 188, 1.0);
+	--basic2: rgba(255, 150, 0, 1.0); 
+}
+
+html{
+	font-size: 62.5%;
+}
+
+
+
+header{
+	height: 100vh;
+	width: 100%;
+
+	background-image: url("hero.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+nav{
+
+	height: 12vh;
+	background-image: linear-gradient(to right, rgba(255, 150, 0, .95),rgba(96, 163, 188,.95));
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+.left{
+	height: 100%;
+	flex-basis: 50%;/*
+	background-color: rgba(255, 150, 0, .8);*/
+	display: flex;align-items: center;
+}
+
+.right{
+	
+	flex-basis: 50%;/*
+    background-color: rgba(96, 163, 188,.8);*/
+}
+
+
+.left img{
+	width: 11%;
+	margin-left: 15%;
+
+}
+
+.left h1{
+	color: var(--basic1);
+	font-size: 4rem;
+	margin-left: 2rem;
+	text-shadow: 0 0 5px white;
+}
+
+.right ul{
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+   
+}
+
+
+.right ul li:last-child{
+	 margin-right: 5%;
+}
+
+.right ul li a{
+	font-size: 2rem;
+	text-decoration: none;
+	color: var(--basic2);
+	text-shadow: 1px 1px 2px black;
+	font-weight: bold;
+	transition: all .3s;
+}
+
+.right ul li a:hover{
+	color: var(--basic1);
+	transition: all .3s;
+}
+
+.right ul li::after{
+	content: "";
+	width: 0;
+	height: 3px;
+	background-color: var(--basic2);
+	display: block;
+	transition: all .3s;
+	margin: auto;
+
+}
+.right ul li:hover::after{
+	width: 100%;
+	transform-origin: center;
+	transition: all .3s;
+}
+
+  /*==========DRopdown Session==========*/
+
+
+.dropdown{
+	position: relative;
+
+}
+
+.dropdown-content ul{
+	display: block;
+}
+
+.dropdown-content{
+	width: 150px;
+	line-height: 27px;
+
+	position: absolute;
+	top:100%;
+	background-color:  rgba(96, 163, 188, .9);
+}
+
+.dropdown-content{
+	text-align: center;
+	display: none;
+}
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+
+.dropdown-2{
+	position: relative;
+}
+
+.dropdown-content-2{
+	position: absolute;
+	left: -64.3%;
+	top: -6%;
+	background-color:  rgba(96, 163, 188, .8);
+}
+
+.dropdown-content-2{
+	display: none;
+}
+
+.dropdown-2:hover .dropdown-content-2{
+	display: block;
+}
+
+
+ul ul li:hover::after{
+	display: none;
+}
+
+label span i{
+	font-size: 3rem;
+	color: white;
+}
+
+input,label{
+	display: none;
+}
+
+#check-close{
+	display: none;
+}
+
+@media (max-width: 1050px){
+	.dropdown-content{
+		line-height: 20px;
+	}
+
+	.dropdown-content-2{
+	position: absolute;
+	left: -60%;
+	top: -7%;
+}
+
+}
+
+@media (max-width: 768px){
+
+nav{
+	display: block;
+	position: relative;
+}
+
+.left img{
+	width: 7%;
+	margin-left: 10%;
+}
+.left h1{
+	font-size: 2.8rem;
+}
+nav ul li:hover::after{
+	display: none;
+}
+
+nav ul {
+	flex-direction: column;
+	width: 150px;
+	background-color: rgba(96, 163, 188, .95);
+	border-bottom-right-radius: 10px;
+}
+
+.right ul li a{
+	font-size: 2.2rem;
+}
+
+.dropdown-content{
+	position: static;
+	background-color: none;
+	
+}
+
+.dropdown-content-2{
+	position: static;
+	left: 0;
+	top: 0;
+	background-color: none;
+}
+
+input,label{
+	display: block;
+}
+
+.right{
+	position: absolute;
+	top: 100%;
+	left: -100%;
+	transition: all .5s;
+}
+.right label i{
+	float: right;
+}
+input{position: absolute;
+opacity: 0;
+ click-events: none;
+}
+
+label span i{
+	position: absolute;
+	top: 27%;
+	right: 5%;
+}
+
+
+#check1:checked ~ .right{
+left: 0;
+}
+
+#check1:checked + label #check-bars{
+display: none;
+}
+
+
+#check-close{
+	display: none;
+}
+
+#check1:checked + label #check-close{
+display: block;
+}
+
+
+}
+
+/*+============Gallery Section==========*/
+
+
+.gallery-container{
+	overflow-x: hidden;
+	margin-top: 5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.ideal-h{
+	font-size: 5rem;
+	margin-bottom:3rem ;
+}
+.gallery{
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1.5rem;
+}
+
+.gallery img {
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+	box-shadow: 0 0 6px gray;
+
+}
+
+@media (max-width: 768px) {
+	.gallery{
+		grid-template-columns: 1fr;
+		grid-gap: 1rem;
+	}
+	.ideal-h{
+		font-size: 3rem;
+	}
+
+
+}
+
+/*==========Teachers Section ============*/
+
+.teachers-sec-con{
+	width: 100%;
+	text-align: center;
+	margin-top: 10rem;
+}
+
+.teachers-sec{
+	margin-top: 4rem;
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 3rem;
+	margin-bottom: 3rem; 
+}
+
+.teachers{
+	position: relative;
+   
+}
+.teachers img{
+	width: 100%;
+	height: 100%;
+	
+}
+
+ 
+ .overlay {
+	
+	border: 1px solid red;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+  padding-top: 2rem;
+  padding-bottom: .5rem;
+  background-color: rgba(255, 255, 255, .9);
+  opacity: 0; 
+  transition: all .5s;
+  transform-origin: center;
+}
+
+.overlay h2{
+	font-size: 2.5rem;
+	color: var(--basic1);
+}
+.teachers p{
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.overlay i{
+	font-size: 2.5rem;
+	color: var(--basic1);
+	margin: 0 5%;
+	cursor: pointer;
+}
+
+.teachers:hover .overlay{
+ 	opacity: 1;
+ 	transition: all .5s;
+ }
+
+
+@media (max-width: 768px){
+	.teachers-sec{
+		grid-template-columns: auto;
+		grid-auto-flow: row;
+
+	}
+}
+
+
+
+@media (max-width: 500px){
+	.teachers{
+		margin-top: 2rem;
+	}
+
+
+
+}
